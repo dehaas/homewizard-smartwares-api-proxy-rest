@@ -1,0 +1,23 @@
+{
+  "name": "smartwares-switch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "author": "Thibault Maekelbergh <thibault.maekelbergh@icloud.com> (https://thibmaekelbergh.be)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "got": "^8.0.1",
+    "nodemon": "^1.12.1",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-devine": "^1.7.1"
+  }
+}
