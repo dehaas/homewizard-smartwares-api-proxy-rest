@@ -13,21 +13,42 @@ app.use(require(`./middleware/checkProxyAPIToken`));
 // Routes
 app.get(`/plugs`, async (req, res) => {
   const getPlugs = require(`./routes/plugs`);
-  const plugs = await getPlugs(req.headers[`x-session-token`]);
+  const plugs = await getPlugs(req);
 
   return res.json(plugs);
 });
 
 app.get(`/plugs/:id`, async (req, res) => {
   const getPlugs = require(`./routes/plugs`);
-  const plugs = await getPlugs(req.headers[`x-session-token`]);
+  const plugs = await getPlugs(req);
 
   return res.json(plugs.filter(plug => plug.id === req.params.id)[0]);
 });
 
 app.get(`/plugs/:id/location`, async (req, res) => {
   const getPlugs = require(`./routes/plugs`);
-  const plugs = await getPlugs(req.headers[`x-session-token`]);
+  const plugs = await getPlugs(req);
+  const {latitude, longitude} = plugs.filter(plug => plug.id === req.params.id)[0];
+
+  return res.json({
+    latitude,
+    longitude,
+  });
+});
+
+app.get(`/plugs/:id/isAvailable`, async (req, res) => {
+  const getPlugs = require(`./routes/plugs`);
+  const plugs = await getPlugs(req);
+  const {online} = plugs.filter(plug => plug.id === req.params.id)[0];
+
+  return res.json({
+    isAvailable: online,
+  });
+});
+
+app.get(`/plugs/:id/updateAvailable`, async (req, res) => {
+  const getPlugs = require(`./routes/plugs`);
+  const plugs = await getPlugs(req);
   const {latitude, longitude} = plugs.filter(plug => plug.id === req.params.id)[0];
 
   return res.json({
@@ -38,7 +59,7 @@ app.get(`/plugs/:id/location`, async (req, res) => {
 
 app.get(`/plugs/:id/devices`, async (req, res) => {
   const getPlugs = require(`./routes/plugs`);
-  const plugs = await getPlugs(req.headers[`x-session-token`]);
+  const plugs = await getPlugs(req);
   const {devices} = plugs.filter(plug => plug.id === req.params.id)[0];
 
   return res.json(devices);
