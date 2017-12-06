@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(require(`./middleware/useSessionToken`));
+app.use(require(`./middleware/checkProxyAPIToken`));
 
 // Routes
 app.get(`/plugs`, async (req, res) => {
@@ -65,4 +66,3 @@ app.get(`/token`, async (req, res) => {
 app.listen((process.env.PORT || 3000), () => {
   console.log(`🔌 Homewizard Proxy API running on port ${process.env.PORT || 3000}`);
 });
-
