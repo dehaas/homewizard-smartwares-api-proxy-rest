@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(require(`./middleware/useSessionToken`));
-app.use(require(`./middleware/checkProxyAPIToken`));
+if (process.env.NODE_ENV === 'production') app.use(require(`./middleware/checkProxyAPIToken`));
 
 // Routes
 app.get(`/plugs`, async (req, res) => {
