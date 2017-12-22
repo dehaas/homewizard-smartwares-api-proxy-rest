@@ -1,7 +1,7 @@
 {
-  "name": "smartwares-switch",
+  "name": "homewizard-smartwares-api-proxy-rest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Homewizard (Smartwares) REST Proxy API",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ."
