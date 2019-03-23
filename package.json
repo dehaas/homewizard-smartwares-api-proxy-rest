@@ -1,6 +1,6 @@
 {
   "name": "homewizard-smartwares-api-proxy-rest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Homewizard (Smartwares) REST Proxy API",
   "main": "index.js",
   "scripts": {
