@@ -1,3 +1,7 @@
 {
-  "extends": "devine"
+  "extends": "thibmaek",
+  "rules": {
+    "import/no-commonjs": "off",
+    "no-console": "off"
+  }
 }

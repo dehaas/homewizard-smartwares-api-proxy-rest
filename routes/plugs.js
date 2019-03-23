@@ -16,8 +16,13 @@ module.exports = async req => {
       return plugs;
     }
 
-    return plugs.map(({id, name, latitude, longitude, devices, online}) => ({
-      id, name, latitude, longitude, devices, online,
+    return plugs.map(({ id, name, latitude, longitude, devices, online }) => ({
+      devices,
+      id,
+      latitude,
+      longitude,
+      name,
+      online,
     }));
 
   } catch (err) {

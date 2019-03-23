@@ -1,5 +1,6 @@
 const sha1 = require(`sha1`);
 const got = require(`got`);
+
 const getBasicAuthHeader = require(`../lib/getBasicAuth`);
 
 module.exports = async (
@@ -12,18 +13,18 @@ module.exports = async (
   try {
     const res = await got(TOKEN_URL, {
       headers: {
-        authorization: auth.value,
         accept: `application/json`,
-      }
+        authorization: auth.value,
+      },
     });
 
     const data = JSON.parse(res.body);
 
     return data.session
-      ? {token: data.session}
+      ? { token: data.session }
       : new Error({
         error: data.error,
-        msg: data.errorMessage
+        msg: data.errorMessage,
       });
   } catch (err) {
     console.error(err);
