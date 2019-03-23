@@ -1,23 +1,27 @@
 {
   "name": "homewizard-smartwares-api-proxy-rest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Homewizard (Smartwares) REST Proxy API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ."
+    "start": "NODE_ENV=production node index.js",
+    "dev": "nodemon .",
+    "lint": "eslint \"./**/*.js\"",
+    "lint:fix": "npm run lint -- --fix"
   },
   "author": "Thibault Maekelbergh <thibault.maekelbergh@icloud.com> (https://thibmaekelbergh.be)",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.2",
-    "got": "^8.0.1",
-    "nodemon": "^1.12.1",
+    "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "got": "^9.6.0",
+    "nodemon": "^1.18.10",
     "sha1": "^1.1.1"
   },
   "devDependencies": {
-    "eslint": "^4.12.1",
-    "eslint-config-devine": "^1.7.1"
+    "eslint": "^5.15.3",
+    "eslint-config-thibmaek": "^1.0.4",
+    "eslint-plugin-babel": "^5.3.0"
   }
 }
